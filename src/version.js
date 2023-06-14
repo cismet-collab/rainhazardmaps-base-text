@@ -1,6 +1,6 @@
 const LIBVERSION = "%LIB_VERSION%";
 const LIBHASH = "#%LIB_HASH%";
-const LIBGITDESCRIBE = "#%LIB_DESCRIBE%";
+const LIBGITDESCRIBE = "%LIB_DESCRIBE%";
 
 export const getLibVersion = () => {
   /*eslint-disable no-useless-concat*/
