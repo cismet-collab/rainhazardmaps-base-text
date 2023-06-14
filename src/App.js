@@ -20,7 +20,7 @@ function App() {
   }, [setAppMenuVisible]);
   return (
     <div>
-      {getLibVersion()}
+      {"@cismet-collab/rainhazardmaps-base-text@" + getLibVersion()}
       <GenericModalApplicationMenu
         menuIntroduction={<Help05Introduction />}
         menuIcon="info"
