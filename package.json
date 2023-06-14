@@ -2,7 +2,7 @@
   "name": "@cismet-collab/rainhazardmaps-base-text",
   "description": "base text library for creating rainhazardmaps help components",
   "license": "MIT",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "index.js",
   "module": "index.js",
   "publishConfig": {
