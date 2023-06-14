@@ -45,6 +45,5 @@ jobs:
         run: cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Push changes to repository
-        run: git push origin && git push --tags
+        run: git push origin dev && git push --tags
