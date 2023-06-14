@@ -1,0 +1,43 @@
+name: Version test
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: "Release type (one of): patch, minor, major, prepatch, preminor, premajor, prerelease"
+        required: true
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          clean: true
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://npm.pkg.github.com"
+      # - name: Git configuration
+      #   run: |
+      #     git config --global user.email "902348742+github-actions[bot]@users.noreply.github.com"
+      #     git config --global user.name "GitHub Actions"
+      - name: Change release version
+        run: npm version ${{ env.RELEASE_TYPE }}
+        env:
+          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
+      # - name: Install Packages
+      #   run: yarn install
+      # - name: Build the package
+      #   run: yarn build:package
+      # - name: Publish the package
+      #   run: cd dist && npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push changes to repository
+        run: git push origin && git push --tags
