@@ -15,16 +15,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: create tmp .npmrc
-        env:
-          CI_ACCESS_TOKEN: ${{ secrets.NPM_READ_RAINHAZARDMAPS }}
-        shell: bash
-        run: |
-          echo @cismet-dev:registry=https://npm.pkg.github.com/ > .npmrc
-          echo //npm.pkg.github.com/:_authToken=${CI_ACCESS_TOKEN} >> .npmrc
-          echo registry=https://registry.npmjs.org >> .npmrc
-      - name: Debug .npmrc
-        run: cat .npmrc
       - name: Install Packages
         run: yarn install
       - name: cleanup .npmrc
@@ -43,7 +33,6 @@ jobs:
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
       - name: show deployed folder
         run: ls build
