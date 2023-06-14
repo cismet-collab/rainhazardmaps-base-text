@@ -27,6 +27,8 @@ jobs:
         run: DESCRIBE=`cat .gitdescribe`; sed -i "s/%LIB_DESCRIBE%/$DESCRIBE/" src/version.js
       - name: debug version.js
         run: cat src/version.js
+      - name: debug gitdescribe.js
+        run: cat .gitdescribe
       # - name: Build page
       #   run: yarn run build
       #   env:
