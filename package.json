@@ -27,7 +27,7 @@
     "_prebuild": "githash=`git rev-parse --short HEAD`; version=$npm_package_version && echo const version=\\'$version\\'\\; const hash=\\'$githash\\'\\; export {version, hash}\\; > src/lib/meta.js",
     "build:package": "rm -rf dist/* && NODE_ENV=production babel src/lib --out-dir dist --copy-files  --source-maps both --ignore *.stories.js,__tests__,spec.js,test.js,__snapshots__ && yarn run copypackage",
     "copypackage": "cp -rf package.json dist",
-    "postversion": "echo Postversionhook && rm -f .version ; rm -f .githash ; sed '/^.*\"version\":.*$/d' package.json > .package.json.without.version && echo $npm_package_version && echo $npm_package_version > .version && git rev-parse HEAD > .githash",
+    "postversion": "echo Postversionhook && rm -f .version ; rm -f .githash ; rm -f .gitdescribe; sed '/^.*\"version\":.*$/d' package.json > .package.json.without.version && echo $npm_package_version && echo $npm_package_version > .version && git rev-parse HEAD > .githash && echo $(git describe --tags) | sed 's/^v//' > .gitdescribe",
     "dist": "yarn build:package && cd dist && npm publish",
     "eject": "react-scripts eject"
   },
