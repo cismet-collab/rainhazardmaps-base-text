@@ -18,9 +18,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Bump release version
-        run: |
-          echo "npm version $RELEASE_TYPE" >> $GITHUB_ENV
-          echo "RELEASE_TAG=latest" >> $GITHUB_ENV
+        run: npm version ${{ env.RELEASE_TYPE }}
         env:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
       - name: Publish the package
