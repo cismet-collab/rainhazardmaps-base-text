@@ -19,6 +19,8 @@ jobs:
       #   run: yarn install
       - name: fetch tags
         run: git fetch --tags
+      - name: describe
+        run: git describe --always
       - name: prepare 0
         run: touch .version && touch .githash && touch .gitdescribe && yarn run postversion
       - name: prepare 1 (version stuff)
