@@ -1,8 +1,9 @@
 name: Deployment
 on:
-  push:
-    branches:
-      - dev
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - dev
 jobs:
   deploy:
     runs-on: ubuntu-latest
