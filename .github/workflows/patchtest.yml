@@ -39,5 +39,7 @@ jobs:
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: debug
+        run: echo ${{ github.ref }} && echo ${{ github.head_ref }}
       - name: Push changes to repository
         run: git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" "${{ github.head_ref }}"
