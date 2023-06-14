@@ -44,5 +44,6 @@ jobs:
         run: echo ${{ github.ref }} && echo ${{ github.head_ref }}
       - name: Push changes to repository
         run: |
+          git add .
           git commit -am "version bump from github action"
           git push
