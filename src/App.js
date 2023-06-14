@@ -22,7 +22,7 @@ function App() {
     <div>
       {"@cismet-collab/rainhazardmaps-base-text@" +
         getLibVersion() +
-        (isDirty() ? " (dirty)" : "")}
+        (isDirty() ? " (dirty: release before usage)" : "(ready to use)")}
       <GenericModalApplicationMenu
         menuIntroduction={<Help05Introduction />}
         menuIcon="info"
