@@ -1,5 +1,6 @@
 const LIBVERSION = "%LIB_VERSION%";
 const LIBHASH = "#%LIB_HASH%";
+const LIBGITDESCRIBE = "#%LIB_DESCRIBE%";
 
 export const getLibVersion = () => {
   /*eslint-disable no-useless-concat*/
@@ -14,5 +15,15 @@ export const getLibHash = () => {
     return "#dev-hot-reload";
   } else {
     return LIBHASH;
+  }
+};
+
+export const isDirty = () => {
+  if (LIBGITDESCRIBE === "%LIB" + "_" + "DESCRIBE%") {
+    return true;
+  } else if (LIBGITDESCRIBE !== LIBVERSION) {
+    return true;
+  } else {
+    return false;
   }
 };
