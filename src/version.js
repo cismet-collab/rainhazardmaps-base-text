@@ -27,3 +27,11 @@ export const isDirty = () => {
     return false;
   }
 };
+
+export const getLibDescribe = () => {
+  if (LIBGITDESCRIBE === "%LIB" + "_" + "DESCRIBE%") {
+    return "dev-hot-reload";
+  } else {
+    return LIBGITDESCRIBE;
+  }
+};
