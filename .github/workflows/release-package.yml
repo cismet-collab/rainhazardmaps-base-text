@@ -8,6 +8,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     strategy:
       matrix:
         node-version: [16.x]
@@ -37,7 +39,7 @@ jobs:
       #       cat .npmrc
       #     env:
       #       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Publish the package
+      - name: Build the package
         run: yarn build:package
       - name: Publish the package
         run: cd dist && npm publish
