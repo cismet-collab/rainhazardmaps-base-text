@@ -32,3 +32,4 @@ yarn-error.log*
 .package.json.without.version
 .version
 .githash
+.gitdescribe
