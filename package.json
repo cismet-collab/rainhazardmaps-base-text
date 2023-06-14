@@ -1,7 +1,7 @@
 {
   "name": "@cismet-collab/rainhazardmaps-base-text",
   "description": "base text library for creating rainhazardmaps help components",
-  "private": true,
+  "license": "MIT",
   "version": "0.1.0",
   "main": "index.js",
   "module": "index.js",
@@ -21,9 +21,11 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "build:cra": "react-scripts build",
     "_prebuild": "githash=`git rev-parse --short HEAD`; version=$npm_package_version && echo const version=\\'$version\\'\\; const hash=\\'$githash\\'\\; export {version, hash}\\; > src/lib/meta.js",
     "build": "rm -rf dist/* && NODE_ENV=production babel src/lib --out-dir dist --copy-files  --source-maps both --ignore *.stories.js,__tests__,spec.js,test.js,__snapshots__ && yarn run copypackage",
     "copypackage": "cp -rf package.json dist",
+    "dist": "cd dist && bash -c 'npm publish'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
