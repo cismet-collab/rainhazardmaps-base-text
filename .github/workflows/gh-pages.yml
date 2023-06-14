@@ -17,6 +17,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       # - name: Install Packages
       #   run: yarn install
+      - name: fetch tags
+        run: git fetch --tags
       - name: prepare 0
         run: touch .version && touch .githash && touch .gitdescribe && yarn run postversion
       - name: prepare 1 (version stuff)
