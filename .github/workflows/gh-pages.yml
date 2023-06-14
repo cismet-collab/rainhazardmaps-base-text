@@ -15,10 +15,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Packages
-        run: yarn install
+      # - name: Install Packages
+      #   run: yarn install
       - name: prepare 0
-        run: touch .version && touch .githash && yarn run postversion
+        run: touch .version && touch .githash && touch .gitdescribe && yarn run postversion
       - name: prepare 1 (version stuff)
         run: VERSION=`cat .version`; sed -i "s/%LIB_VERSION%/$VERSION/" src/version.js
       - name: prepare 2 (hash stuff)
@@ -27,14 +27,14 @@ jobs:
         run: DESCRIBE=`cat .gitdescribe`; sed -i "s/%LIB_DESCRIBE%/$DESCRIBE/" src/version.js
       - name: debug version.js
         run: cat src/version.js
-      - name: Build page
-        run: yarn run build
-        env:
-          CI: false
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-      - name: show deployed folder
-        run: ls build
+      # - name: Build page
+      #   run: yarn run build
+      #   env:
+      #     CI: false
+      # - name: Deploy to gh-pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./build
+      # - name: show deployed folder
+      #   run: ls build
