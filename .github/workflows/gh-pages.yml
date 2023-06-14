@@ -33,9 +33,9 @@ jobs:
       - name: prepare 0
         run: touch .version && touch .githash && yarn run postversion
       - name: prepare 1 (version stuff)
-        run: VERSION=`cat .version`; sed -i "s/%APPLICATION_VERSION%/$VERSION/" src/version.js
+        run: VERSION=`cat .version`; sed -i "s/%LIB_VERSION%/$VERSION/" src/version.js
       - name: prepare 2 (hash stuff)
-        run: HASH=`cat .githash`; sed -i "s/%APPLICATION_HASH%/$HASH/" src/version.js
+        run: HASH=`cat .githash`; sed -i "s/%LIB_HASH%/$HASH/" src/version.js
       - name: Build page
         run: yarn run build
         env:
