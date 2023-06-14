@@ -19,16 +19,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Change release version
+        run: npm version ${{ env.RELEASE_TYPE }}
+        env:
+          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
       - name: Install Packages
         run: yarn install
       - name: Git configuration
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-      - name: Bump release version
-        run: npm version ${{ env.RELEASE_TYPE }}
-        env:
-          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
       - name: Publish the package
         run: yarn dist
         env:
