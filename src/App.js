@@ -1,10 +1,12 @@
 import "./App.css";
 import GenericModalApplicationMenu from "react-cismap/topicmaps/menu/ModalApplicationMenu";
-import Introduction from "./lib/help/Help05Introduction";
-import Karteninhalt from "./lib/help/Help20Karteninhalt";
-import ModellfehlerMelden from "./lib/help/Help80ModellfehlerMelden";
-import Haftungsausschluss from "./lib/help/Help90Haftungsausschluss";
-import Footer from "./lib/help/Help99Footer";
+import {
+  Help05Introduction,
+  Help20Karteninhalt,
+  Help80ModellfehlerMelden,
+  Help90Haftungsausschluss,
+  Help99Footer,
+} from "./lib";
 import { useContext, useEffect } from "react";
 import { UIDispatchContext } from "react-cismap/contexts/UIContextProvider";
 
@@ -18,16 +20,16 @@ function App() {
   }, [setAppMenuVisible]);
   return (
     <GenericModalApplicationMenu
-      menuIntroduction={<Introduction />}
+      menuIntroduction={<Help05Introduction />}
       menuIcon="info"
       menuTitle="Kompaktanleitung und Hintergrundinformationen"
       menuSections={[
-        <Karteninhalt key="Karteninhalt" />,
-        <Haftungsausschluss key="Haftungsausschluss" />,
-        <ModellfehlerMelden key="ModellfehlerMelden" />,
+        <Help20Karteninhalt key="Karteninhalt" />,
+        <Help90Haftungsausschluss key="Haftungsausschluss" />,
+        <Help80ModellfehlerMelden key="ModellfehlerMelden" />,
       ]}
       menuFooter={
-        <Footer
+        <Help99Footer
           version={version}
           reactCismapRHMVersion={reactCismapRHMVersion}
           logoUrl={footerLogoUrl}
