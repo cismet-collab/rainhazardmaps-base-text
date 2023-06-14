@@ -9,7 +9,7 @@ import {
 } from "./lib";
 import { useContext, useEffect } from "react";
 import { UIDispatchContext } from "react-cismap/contexts/UIContextProvider";
-import { getLibVersion } from "./version";
+import { getLibVersion, isDirty } from "./version";
 function App() {
   const version = "0.0.0";
   const reactCismapRHMVersion = "0.0.0";
@@ -20,7 +20,9 @@ function App() {
   }, [setAppMenuVisible]);
   return (
     <div>
-      {"@cismet-collab/rainhazardmaps-base-text@" + getLibVersion()}
+      {"@cismet-collab/rainhazardmaps-base-text@" +
+        getLibVersion() +
+        (isDirty() ? " (dirty)" : "")}
       <GenericModalApplicationMenu
         menuIntroduction={<Help05Introduction />}
         menuIcon="info"
