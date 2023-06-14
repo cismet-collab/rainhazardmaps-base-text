@@ -9,7 +9,7 @@ import {
 } from "./lib";
 import { useContext, useEffect } from "react";
 import { UIDispatchContext } from "react-cismap/contexts/UIContextProvider";
-import { getLibVersion, isDirty } from "./version";
+import { getLibDescribe, getLibVersion, isDirty } from "./version";
 function App() {
   const version = "0.0.0";
   const reactCismapRHMVersion = "0.0.0";
@@ -22,7 +22,9 @@ function App() {
     <div>
       {"@cismet-collab/rainhazardmaps-base-text@" +
         getLibVersion() +
-        (isDirty() ? " (dirty: release before usage)" : "(ready to use)")}
+        (isDirty()
+          ? " (dirty: release before usage[" + getLibDescribe() + "])"
+          : "(ready to use)")}
       <GenericModalApplicationMenu
         menuIntroduction={<Help05Introduction />}
         menuIcon="info"
