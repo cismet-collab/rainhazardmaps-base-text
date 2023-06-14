@@ -23,6 +23,8 @@ jobs:
         run: VERSION=`cat .version`; sed -i "s/%LIB_VERSION%/$VERSION/" src/version.js
       - name: prepare 2 (hash stuff)
         run: HASH=`cat .githash`; sed -i "s/%LIB_HASH%/$HASH/" src/version.js
+      - name: prepare 3 (gitdescribe stuff)
+        run: DESCRIBE=`cat .gitdescribe`; sed -i "s/%LIB_DESCRIBE%/$DESCRIBE/" src/version.js
       - name: Build page
         run: yarn run build
         env:
