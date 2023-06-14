@@ -28,7 +28,7 @@
     "build:package": "rm -rf dist/* && NODE_ENV=production babel src/lib --out-dir dist --copy-files  --source-maps both --ignore *.stories.js,__tests__,spec.js,test.js,__snapshots__ && yarn run copypackage",
     "copypackage": "cp -rf package.json dist",
     "postversion": "echo Postversionhook && rm -f .version ; rm -f .githash ; sed '/^.*\"version\":.*$/d' package.json > .package.json.without.version && echo $npm_package_version && echo $npm_package_version > .version && git rev-parse HEAD > .githash",
-    "dist": "yarn build:package && cd dist && bash -c 'npm publish'",
+    "dist": "yarn build:package && cd dist && npm publish",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
