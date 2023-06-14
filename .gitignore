@@ -26,3 +26,9 @@ yarn-error.log*
 
 # Mac files
 .DS_Store
+
+
+
+.package.json.without.version
+.version
+.githash
