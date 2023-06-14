@@ -43,7 +43,4 @@ jobs:
       # - name: debug
       #   run: echo ${{ github.ref }} && echo ${{ github.head_ref }}
       - name: Push changes to repository
-        run: |
-          git add package.json
-          git commit -am "version bump from github action"
-          git push origin dev
+        run: git push origin dev
