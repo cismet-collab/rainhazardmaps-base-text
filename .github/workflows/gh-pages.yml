@@ -15,8 +15,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      # - name: Install Packages
-      #   run: yarn install
+      - name: Install Packages
+        run: yarn install
       - name: fetch tags
         run: git fetch --tags origin
       - name: describe
@@ -33,14 +33,14 @@ jobs:
         run: cat src/version.js
       - name: debug gitdescribe.js
         run: cat .gitdescribe
-      # - name: Build page
-      #   run: yarn run build
-      #   env:
-      #     CI: false
-      # - name: Deploy to gh-pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./build
-      # - name: show deployed folder
-      #   run: ls build
+      - name: Build page
+        run: yarn run build
+        env:
+          CI: false
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+      - name: show deployed folder
+        run: ls build
