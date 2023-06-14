@@ -17,13 +17,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Bump release version 
+      - name: Bump release version
         run: |
-            echo "npm version $RELEASE_TYPE" >> $GITHUB_ENV
-            echo "RELEASE_TAG=latest" >> $GITHUB_ENV
-          env:
-            RELEASE_TYPE: ${{ github.event.inputs.release-type }}
+          echo "npm version $RELEASE_TYPE" >> $GITHUB_ENV
+          echo "RELEASE_TAG=latest" >> $GITHUB_ENV
+        env:
+          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
       - name: Publish the package
         run: yarn dist
         env:
- 
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
