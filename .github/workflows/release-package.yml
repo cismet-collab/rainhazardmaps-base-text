@@ -29,8 +29,11 @@ jobs:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
       - name: Install Packages
         run: yarn install
-      - name: replace token
-        run: echo "$(sed 's/\(_authToken=\)[a-z0-9]*\($\)/\1${{ env.GITHUB_TOKEN }}\2/g' .npmrc)" > .npmrc
+      - name: write .npmrc
+        run: |
+          echo "@cismet-collab:registry=https://npm.pkg.github.com" > .npmrc;
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc;
+          cat .npmrc
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Publish the package
