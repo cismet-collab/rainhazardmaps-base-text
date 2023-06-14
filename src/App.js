@@ -20,7 +20,7 @@ function App() {
   }, [setAppMenuVisible]);
   return (
     <div>
-      {"@cismet-collab/rainhazardmaps-base-text@" +
+      {"@cismet-collab/rainhazardmaps-base-texts@" +
         getLibVersion() +
         (isDirty()
           ? " (dirty: release before usage[" + getLibDescribe() + "])"
