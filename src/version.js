@@ -1,7 +1,7 @@
 const LIBVERSION = "%LIB_VERSION%";
 const LIBHASH = "#%LIB_HASH%";
 
-export const getApplicationVersion = () => {
+export const getLibVersion = () => {
   /*eslint-disable no-useless-concat*/
   if (LIBVERSION === "%LIB" + "_" + "VERSION%") {
     return "dev-hot-reload";
@@ -9,7 +9,7 @@ export const getApplicationVersion = () => {
     return LIBVERSION;
   }
 };
-export const getApplicationHash = () => {
+export const getLibHash = () => {
   if (LIBHASH === "%LIB" + "_" + "HASH%") {
     return "#dev-hot-reload";
   } else {

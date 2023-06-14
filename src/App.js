@@ -9,7 +9,7 @@ import {
 } from "./lib";
 import { useContext, useEffect } from "react";
 import { UIDispatchContext } from "react-cismap/contexts/UIContextProvider";
-
+import { getLibVersion } from "./version";
 function App() {
   const version = "0.0.0";
   const reactCismapRHMVersion = "0.0.0";
@@ -19,23 +19,26 @@ function App() {
     setAppMenuVisible(true);
   }, [setAppMenuVisible]);
   return (
-    <GenericModalApplicationMenu
-      menuIntroduction={<Help05Introduction />}
-      menuIcon="info"
-      menuTitle="Kompaktanleitung und Hintergrundinformationen"
-      menuSections={[
-        <Help20Karteninhalt key="Karteninhalt" />,
-        <Help90Haftungsausschluss key="Haftungsausschluss" />,
-        <Help80ModellfehlerMelden key="ModellfehlerMelden" />,
-      ]}
-      menuFooter={
-        <Help99Footer
-          version={version}
-          reactCismapRHMVersion={reactCismapRHMVersion}
-          logoUrl={footerLogoUrl}
-        />
-      }
-    />
+    <div>
+      {getLibVersion()}
+      <GenericModalApplicationMenu
+        menuIntroduction={<Help05Introduction />}
+        menuIcon="info"
+        menuTitle="Gemeinsam genutzte Textbausteine der Starkregengefahrenkarten"
+        menuSections={[
+          <Help20Karteninhalt key="Karteninhalt" />,
+          <Help90Haftungsausschluss key="Haftungsausschluss" />,
+          <Help80ModellfehlerMelden key="ModellfehlerMelden" />,
+        ]}
+        menuFooter={
+          <Help99Footer
+            version={version}
+            reactCismapRHMVersion={reactCismapRHMVersion}
+            logoUrl={footerLogoUrl}
+          />
+        }
+      />
+    </div>
   );
 }
 
