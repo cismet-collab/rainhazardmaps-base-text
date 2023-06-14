@@ -38,7 +38,9 @@ jobs:
       #     env:
       #       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Publish the package
-        run: yarn dist
+        run: yarn build:package
+      - name: Publish the package
+        run: cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
