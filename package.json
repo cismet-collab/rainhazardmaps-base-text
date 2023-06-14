@@ -1,20 +1,29 @@
 {
-  "name": "rainhazard-cismap-texts",
-  "version": "0.1.0",
+  "name": "@cismet-collab/rainhazardmaps-base-text",
+  "description": "base text library for creating rainhazardmaps help components",
   "private": true,
+  "version": "0.1.0",
+  "main": "index.js",
+  "module": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/cismet-collab"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^16.11",
+    "react-cismap": "^1.14.4",
+    "react-dom": "^16.11",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
+    "_prebuild": "githash=`git rev-parse --short HEAD`; version=$npm_package_version && echo const version=\\'$version\\'\\; const hash=\\'$githash\\'\\; export {version, hash}\\; > src/lib/meta.js",
+    "build": "rm -rf dist/* && NODE_ENV=production babel src/lib --out-dir dist --copy-files  --source-maps both --ignore *.stories.js,__tests__,spec.js,test.js,__snapshots__ && yarn run copypackage",
+    "copypackage": "cp -rf package.json dist",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,5 +43,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-react": "^7.22.5"
   }
 }
