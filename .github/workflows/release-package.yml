@@ -37,8 +37,6 @@ jobs:
       - name: .npmrc
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISHING_TOKEN }}" > dist/.npmrc
-      - name: debug .npmrc
-        run: cat dist/.npmrc
       - name: Publish the package
         run: cd dist && npm publish --access public
       - name: Push changes to repository
