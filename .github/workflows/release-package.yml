@@ -36,9 +36,15 @@ jobs:
         run: yarn build:package
       - name: .npmrc
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ env.NODE_AUTH_TOKEN }}" > .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISHING_TOKEN }}
+      - name: debug .npmrc
+        run: cat .npmrc
       - name: Publish the package
         run: cd dist && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISHING_TOKEN }}
       - name: Push changes to repository
         run: git push origin dev && git push --tags
       # copied from gh-pages
