@@ -6,9 +6,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "module": "index.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/cismet-collab"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -28,7 +25,7 @@
     "build:package": "rm -rf dist/* && NODE_ENV=production babel src/lib --out-dir dist --copy-files  --source-maps both --ignore *.stories.js,__tests__,spec.js,test.js,__snapshots__ && yarn run copypackage",
     "copypackage": "cp -rf package.json dist",
     "postversion": "echo Postversionhook && rm -f .version ; rm -f .githash ; rm -f .gitdescribe; sed '/^.*\"version\":.*$/d' package.json > .package.json.without.version && echo $npm_package_version && echo $npm_package_version > .version && git rev-parse HEAD > .githash && echo $(git describe --always --tags) | sed 's/^v//' > .gitdescribe",
-    "dist": "yarn build:package && cd dist && npm publish",
+    "dist": "yarn build:package && cd dist && npm publish --access public",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
