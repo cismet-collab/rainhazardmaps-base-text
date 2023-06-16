@@ -34,10 +34,11 @@ jobs:
         run: yarn install
       - name: Build the package
         run: yarn build:package
+      - name: .npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
       - name: Publish the package
         run: cd dist && npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISHING_TOKEN }}
       - name: Push changes to repository
         run: git push origin dev && git push --tags
       # copied from gh-pages
