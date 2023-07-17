@@ -81,6 +81,14 @@ const Comp = ({
             href="https://cismet.de/datenschutzerklaerung.html"
           >
             Datenschutzerklärung (Privacy Policy)
+          </a>{" "}
+          |{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://cismet.de/impressum.html"
+          >
+            Impressum
           </a>
         </div>
       </div>
