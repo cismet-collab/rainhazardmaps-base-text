@@ -80,7 +80,7 @@ const Comp = ({
             rel="noopener noreferrer"
             href="https://cismet.de/datenschutzerklaerung.html"
           >
-            Datenschutzerklärung (Privacy Policy)
+            Datenschutzerklärung
           </a>{" "}
           |{" "}
           <a
