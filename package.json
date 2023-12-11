@@ -11,10 +11,12 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^16.11",
-    "react-cismap": "^1.15.5",
     "react-dom": "^16.11",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
+  },
+  "peerDependencies": {
+    "react-cismap": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "react-cismap": "^1.0.0",
     "@babel/cli": "^7.22.5",
     "@babel/core": "^7.22.5",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
