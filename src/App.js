@@ -10,11 +10,14 @@ import {
 import { useContext, useEffect } from "react";
 import { UIDispatchContext } from "react-cismap/contexts/UIContextProvider";
 import { getLibDescribe, getLibVersion, isDirty } from "./version";
+import cLogo from "./lib/help/assets/orangenesC512.png";
 function App() {
   const version = "0.0.0";
   const reactCismapRHMVersion = "0.0.0";
   const footerLogoUrl = undefined;
-  const { setAppMenuVisible } = useContext(UIDispatchContext);
+
+  const { setAppMenuVisible, setAppMenuActiveMenuSection } =
+    useContext(UIDispatchContext);
   useEffect(() => {
     setAppMenuVisible(true);
   }, [setAppMenuVisible]);
@@ -39,6 +42,20 @@ function App() {
             version={version}
             reactCismapRHMVersion={reactCismapRHMVersion}
             logoUrl={footerLogoUrl}
+            logo={
+              <a
+                className="renderAsLink"
+                onClick={() => {
+                  setAppMenuActiveMenuSection("haftungsausschluss");
+                }}
+              >
+                <img
+                  style={{ width: 70, margin: 5, cursor: "pointer" }}
+                  align="right"
+                  src={cLogo}
+                />
+              </a>
+            }
           />
         }
       />

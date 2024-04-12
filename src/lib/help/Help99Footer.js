@@ -23,6 +23,7 @@ const Comp = ({
   version = "???",
   reactCismapRHMVersion = "???",
   logoUrl,
+  logo,
   defaultContextValues = {},
 }) => {
   const { setAppMenuActiveMenuSection } = useContext(UIDispatchContext);
@@ -32,9 +33,10 @@ const Comp = ({
   return (
     footerContent || (
       <div style={{ fontSize: "11px" }}>
-        {logoUrl && (
+        {logo}
+        {!logo && logoUrl && (
           <img
-            alt="aislogo"
+            alt="logo"
             src={logoUrl}
             style={{ width: 150, margin: 5 }}
             align="right"
