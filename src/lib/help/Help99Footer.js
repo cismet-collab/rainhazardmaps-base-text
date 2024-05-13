@@ -25,6 +25,7 @@ const Comp = ({
   logoUrl,
   logo,
   defaultContextValues = {},
+  versionString,
 }) => {
   const { setAppMenuActiveMenuSection } = useContext(UIDispatchContext);
   const customizations =
@@ -53,7 +54,8 @@ const Comp = ({
         {taglineModelling}
         <div>
           <b>
-            {appName} v{version}
+            {appName}{" "}
+            {versionString !== undefined ? versionString : "v" + version}
           </b>{" "}
           powered by{" "}
           <a href="https://cismet.de/" target="_cismet">
