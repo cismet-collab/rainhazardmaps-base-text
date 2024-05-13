@@ -12,7 +12,7 @@ import { UIDispatchContext } from "react-cismap/contexts/UIContextProvider";
 import { getLibDescribe, getLibVersion, isDirty } from "./version";
 import cLogo from "./lib/help/assets/orangenesC512.png";
 function App() {
-  const version = "0.0.0";
+  const version = "5e3a";
   const reactCismapRHMVersion = "0.0.0";
   const footerLogoUrl = undefined;
 
@@ -39,7 +39,7 @@ function App() {
         ]}
         menuFooter={
           <Help99Footer
-            version={version}
+            versionString={"#" + version}
             reactCismapRHMVersion={reactCismapRHMVersion}
             logoUrl={footerLogoUrl}
             logo={

@@ -66,17 +66,8 @@ const Comp = ({
             Leaflet
           </a>{" "}
           und{" "}
-          <a
-            href="https://cismet.de/#refs"
-            title={
-              "react-cismap v" +
-              reactCismapVersion +
-              "\nreact-cismap-rainhazadmaps v" +
-              reactCismapRHMVersion
-            }
-            target="_cismet"
-          >
-            cismap | rainhazardmaps v{reactCismapRHMVersion}
+          <a href="https://github.com/cismet/carma" target="_carma">
+            carma
           </a>{" "}
           |{" "}
           <a
