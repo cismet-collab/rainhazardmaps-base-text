@@ -3,7 +3,7 @@
   "description": "base text library for creating rainhazardmaps help components",
   "license": "MIT",
   "homepage": ".",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "main": "index.js",
   "module": "index.js",
   "dependencies": {},
